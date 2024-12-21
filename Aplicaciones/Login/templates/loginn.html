@@ -1,0 +1,52 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+{% block content %}
+<div class="container-fluid p-0 m-0">
+    <div class="row g-1">
+        <!-- Columna izquierda: Formulario -->
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div style="width: 200%; max-width: 600px;">
+                {% load static %}
+                <header class="bg-white text-left py-3"> 
+                    <img src="{% static 'imagenes/logo.png' %}" alt="Logo de Produbanco" height="50">
+                </header> 
+                <br>                
+                <h3 class="text-success text-left mb-4">Hola, te damos la bienvenida</h3> 
+                <h5 class="text-left">Ingresa a tu Produbanco enlínea</h5> <br>
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white text-center">
+                        <strong>Login</strong>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <label for="username" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Iniciar Sesión</button>
+                        </form> 
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <p>¿Eres cliente y es la primera vez que ingresas?</p>
+                    <a href="#" class="btn btn-outline-success">Regístrate</a>
+                </div>
+                <footer class="bg-light text-center py-3">
+                    <p>Si tienes problemas para ingresar, comunícate al: <strong class="text-success">02 400 9000</strong></p>
+                </footer>
+            </div>
+        </div>
+        <!-- Columna derecha: Imagen -->
+        <div class="col-md-8">
+            <img src="{% static 'imagenes/produ.png' %}" alt="Imagen lateral" class="img-fluid vh-100 w-100" style="object-fit: cover;">
+        </div>
+    </div>
+</div>
+{% endblock %}
